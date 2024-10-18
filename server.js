@@ -37,7 +37,7 @@ app.post("/api/persona", (req, res) => {
     const { persona } = req.body; // Get the persona from the request
     // Store the persona for use in the chat context
     // (Implementation for storing this will depend on your specific app needs)
-    console.log(Persona set to: ${persona});
+    console.log(`Persona set to: ${persona}`);
     res.sendStatus(200);
 });
 
