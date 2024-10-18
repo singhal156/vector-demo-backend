@@ -1,7 +1,8 @@
 // server.js
 const express = require("express");
 const http = require("http");
-const WebSocket = require("ws");
+const WebSocket = require("ws"); // commenting to fix socket.io issue
+//const { Server } = require("socket.io"); //Import socket.io
 const { createClient } = require("@deepgram/sdk");
 const Cobra = require("@picovoice/cobra-node");
 require("dotenv").config();
@@ -9,7 +10,7 @@ require("dotenv").config();
 const cors = require('cors');
 
 // Define allowed origins (your Vercel frontend URL)
-const allowedOrigins = ['https://vector-demo-cuma7k93v-singhal156s-projects.vercel.app'];
+const allowedOrigins = ['https://vector-demo-singhal156s-projects.vercel.app'];
 
 const PORT = process.env.PORT || 3000;
 
