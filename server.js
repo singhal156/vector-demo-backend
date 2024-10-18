@@ -6,6 +6,24 @@ const { createClient } = require("@deepgram/sdk");
 const Cobra = require("@picovoice/cobra-node");
 require("dotenv").config();
 
+const cors = require('cors');
+
+// Define allowed origins (your Vercel frontend URL)
+const allowedOrigins = ['https://vector-demo-cuma7k93v-singhal156s-projects.vercel.app/'];
+
+// Enable CORS
+app.use(cors({
+    origin: function (origin, callback) {
+        if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    }
+}));
+
+
+
 const PORT = process.env.PORT || 3000;
 
 const deepgramClient = createClient(process.env.DEEPGRAM_API_KEY);
