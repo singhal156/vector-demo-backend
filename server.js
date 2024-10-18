@@ -7,7 +7,11 @@ const cors = require('cors');
 const { Server } = require("socket.io"); // Import Socket.IO
 
 // Define allowed origins (your Vercel frontend URL)
-const allowedOrigins = ['https://vector-demo-cuma7k93v-singhal156s-projects.vercel.app'];
+// const allowedOrigins = ['https://vector-demo-cuma7k93v-singhal156s-projects.vercel.app'];
+const corsOptions = {
+    credentials: true,
+    origin: ['https://vector-demo-cuma7k93v-singhal156s-projects.vercel.app'] // Whitelist the domains you want to allow
+};
 
 const PORT = process.env.PORT || 3000;
 
@@ -17,16 +21,19 @@ const server = http.createServer(app);
 const io = new Server(server); // Initialize Socket.IO
 
 // Enable CORS
-app.use(cors({
-    origin: function (origin, callback) {
-        console.log('Origin:', origin); // Log the origin
-        if (!origin || allowedOrigins.indexOf(origin) !== -1) {
-            callback(null, true);
-        } else {
-            callback(new Error('Not allowed by CORS'));
-        }
-    }
-}));
+// app.use(cors({
+//    origin: function (origin, callback) {
+//        console.log('Origin:', origin); // Log the origin
+//        if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+//            callback(null, true);
+//        } else {
+//            callback(new Error('Not allowed by CORS'));
+//        }
+//    }
+// }));
+app.use(cors(corsOptions)); // Use the cors middleware with your options
+
+
 
 app.use(express.json());
 
