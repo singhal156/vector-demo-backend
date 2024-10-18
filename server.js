@@ -69,7 +69,7 @@ wss.on("connection", (ws) => {
             // Implement OpenAI LLM call here (not shown in this code)
 
             // Send the response back to the client
-            ws.send(Assistant response based on persona: ${transcript});
+            ws.send(`Assistant response based on persona: ${transcript}`);
         }
     });
 
