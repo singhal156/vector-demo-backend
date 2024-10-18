@@ -4,7 +4,7 @@ const http = require("http");
 const WebSocket = require("ws"); // commenting to fix socket.io issue
 //const { Server } = require("socket.io"); //Import socket.io
 const { createClient } = require("@deepgram/sdk");
-const Cobra = require("@picovoice/cobra-node");
+const { Cobra } = require("@picovoice/cobra-node");
 require("dotenv").config();
 
 const cors = require('cors');
