@@ -45,6 +45,8 @@ app.post("/api/persona", (req, res) => {
 wss.on("connection", (ws) => {
     console.log("Client connected");
 
+    console.log('Cobra:', Cobra);
+
     // Initialize Picovoice Cobra for VAD
     const cobra = new Cobra(process.env.PICOVOICE_ACCESS_KEY);
 
