@@ -10,7 +10,7 @@ const { Server } = require("socket.io"); // Import Socket.IO
 // const allowedOrigins = ['https://vector-demo-cuma7k93v-singhal156s-projects.vercel.app'];
 const corsOptions = {
     credentials: true,
-    origin: ['https://vector-demo-cuma7k93v-singhal156s-projects.vercel.app'] // Whitelist the domains you want to allow
+    origin: ['*', 'https://vector-demo-cuma7k93v-singhal156s-projects.vercel.app'] // Whitelist the domains you want to allow
 };
 
 const PORT = process.env.PORT || 3000;
