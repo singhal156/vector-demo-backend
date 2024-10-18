@@ -9,7 +9,7 @@ require("dotenv").config();
 const cors = require('cors');
 
 // Define allowed origins (your Vercel frontend URL)
-const allowedOrigins = ['https://vector-demo-cuma7k93v-singhal156s-projects.vercel.app/'];
+const allowedOrigins = ['https://vector-demo-cuma7k93v-singhal156s-projects.vercel.app'];
 
 const PORT = process.env.PORT || 3000;
 
@@ -21,6 +21,7 @@ const wss = new WebSocket.Server({ server });
 // Enable CORS
 app.use(cors({
     origin: function (origin, callback) {
+        console.log('Origin:', origin); // Log the origin
         if (!origin || allowedOrigins.indexOf(origin) !== -1) {
             callback(null, true);
         } else {
