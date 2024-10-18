@@ -63,7 +63,7 @@ wss.on("connection", (ws) => {
             );
 
             const transcript = response?.channel?.alternatives[0]?.transcript;
-            console.log(Transcribed text: ${transcript});
+            console.log(`Transcribed text: ${transcript}`);
 
             // Here you would call OpenAI's API with the transcribed text and the persona
             // Implement OpenAI LLM call here (not shown in this code)
@@ -79,5 +79,5 @@ wss.on("connection", (ws) => {
 });
 
 server.listen(PORT, () => {
-    console.log(Server is running on http://localhost:${PORT});
+    console.log(`Server is running on http://localhost:${PORT}`);
 });
