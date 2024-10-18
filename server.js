@@ -11,6 +11,13 @@ const cors = require('cors');
 // Define allowed origins (your Vercel frontend URL)
 const allowedOrigins = ['https://vector-demo-cuma7k93v-singhal156s-projects.vercel.app/'];
 
+const PORT = process.env.PORT || 3000;
+
+const deepgramClient = createClient(process.env.DEEPGRAM_API_KEY);
+const app = express();
+const server = http.createServer(app);
+const wss = new WebSocket.Server({ server });
+
 // Enable CORS
 app.use(cors({
     origin: function (origin, callback) {
@@ -21,15 +28,6 @@ app.use(cors({
         }
     }
 }));
-
-
-
-const PORT = process.env.PORT || 3000;
-
-const deepgramClient = createClient(process.env.DEEPGRAM_API_KEY);
-const app = express();
-const server = http.createServer(app);
-const wss = new WebSocket.Server({ server });
 
 app.use(express.json());
 
